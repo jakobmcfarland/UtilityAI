@@ -13,5 +13,7 @@ namespace Assets.Code.UtilityAI
         int GetPointCount();
 
         void GiveGameObject( GameObject gameObject);
+
+        void RunBehavior();
     }
 }
