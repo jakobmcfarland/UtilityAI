@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Code.UtilityAI
 {
-    interface IBehavior
+    public interface IBehavior
     {
         int GetPointCount();
     }
