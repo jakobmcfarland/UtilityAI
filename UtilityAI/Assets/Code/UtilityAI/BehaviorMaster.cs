@@ -12,9 +12,9 @@ public class BehaviorMaster
     {
         behaviors.Add(behavior);
     }
-    public IBehavior GetBehavior()
+    public IBehavior GetBehavior(int index)
     {
-        return behaviors[0];
+        return behaviors[index];
     }
     public void staticDecide()
     {
@@ -28,11 +28,28 @@ public class BehaviorMaster
                 maxIndex = i;
             }
         }
-
+        behaviors[maxIndex].RunBehavior();
     }
     public void probabilityDecide()
     {
-
+        List<int> pointCounts = getPointCounts();
+        int pointTotal = 0;
+        foreach (int i in pointCounts)
+        {
+            pointTotal += i;
+        }
+        int currPointCheck = 0, randNum = Random.Range(1, pointTotal), currIndex = 0;
+        foreach (int points in pointCounts)
+        {
+            if (randNum < points + currPointCheck)
+            {
+                behaviors[currIndex].RunBehavior();
+                break;
+            }
+            currPointCheck += points;
+            currIndex++;
+        }
+        
     }
     private List<int> getPointCounts()
     {
