@@ -1,4 +1,14 @@
-﻿using System;
+﻿/* 
+ *  File:   ExampleBehavior.cs
+ *  By:     Jakob McFarland
+ *  Date:   3/11/2019
+ * 
+ *  Brief:  
+ *      Example implementation of a Behavior class.
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +36,11 @@ namespace Assets.Code.UtilityAI
         public void GiveGameObject(GameObject gameObject)
         {
             Owner = gameObject;
+        }
+
+        public void RunBehavior()
+        {
+            //do something here
         }
     }
 }

@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*  
+ *  File:   IBehavior.cs
+ *  By:     Jakob McFarland
+ *  Date:   3/11/2019
+ * 
+ *  Brief:  
+ *      Implementation of the behavior interface for
+ *      all custom behavior classes.
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
