@@ -17,8 +17,12 @@ public class BehaviorMaster
     public void staticDecide()
     {
         List<int> pointCounts = getPointCounts();
+        int maxIndex;
         int i;
-        
+        for (i = 0; i < pointCounts.Capacity; i++)
+        {
+
+        }
     }
     public void probabilityDecide()
     {
