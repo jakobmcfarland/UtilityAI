@@ -5,7 +5,9 @@ using Assets.Code.UtilityAI;
 
 public class BehaviorMaster
 {
+    // List of all behaviors in the BehaviorMaster
     private List<IBehavior> behaviors;
+    // Adds a new behavior to the behavior list
     public void AddBehavior(IBehavior behavior)
     {
         behaviors.Add(behavior);
@@ -17,12 +19,16 @@ public class BehaviorMaster
     public void staticDecide()
     {
         List<int> pointCounts = getPointCounts();
-        int maxIndex;
-        int i;
-        for (i = 0; i < pointCounts.Capacity; i++)
+        int maxIndex = 0, i, currMax = pointCounts[0];
+        for (i = 1; i < pointCounts.Capacity; i++)
         {
-
+            if (pointCounts[i] > currMax)
+            {
+                currMax = pointCounts[i];
+                maxIndex = i;
+            }
         }
+
     }
     public void probabilityDecide()
     {
