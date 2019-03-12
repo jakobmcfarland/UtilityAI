@@ -24,23 +24,22 @@ namespace Assets.Code.UtilityAI
         {
             int points = 0;
 
-            points += 100;
+            if ( Owner.GetComponent<Transform>().position.z > 0.0f) points -= 100;
 
-            points += 200;
-
-            points += 300;
+            if (Owner.GetComponent<Transform>().position.z < 0.0f) points += 200;
 
             return points;
         }
 
-        public void GiveGameObject(GameObject gameObject)
+        public void GiveGameObject(GameObject gameObject, string tag)
         {
-            Owner = gameObject;
+            if(tag == "owner") Owner = gameObject;
         }
 
         public void RunBehavior()
         {
-            //do something here
+            //example behavior action
+            Owner.GetComponent<Transform>().Translate(Vector3.up);
         }
     }
 }
