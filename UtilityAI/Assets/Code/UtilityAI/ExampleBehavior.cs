@@ -7,9 +7,17 @@ namespace Assets.Code.UtilityAI
 {
     class ExampleBehavior : IBehavior
     {
-        public int GetPointCount()
+        public List<int> GetPointCount()
         {
-            return 100;
+            List<int> points = new List<int>();
+
+            points.Add(100);
+
+            points.Add(200);
+
+            points.Add(300);
+
+            return points;
         }
     }
 }

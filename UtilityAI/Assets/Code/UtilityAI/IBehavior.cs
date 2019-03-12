@@ -7,6 +7,6 @@ namespace Assets.Code.UtilityAI
 {
     public interface IBehavior
     {
-        int GetPointCount();
+        List<int> GetPointCount();
     }
 }
