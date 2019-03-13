@@ -7,7 +7,12 @@ public class CameraController : MonoBehaviour
     public float cameraSpeed = 10;
     public float sprintMult = 3;
     public KeyCode forwardKey = KeyCode.W;
-    public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode backwardKey = KeyCode.S;
+    public KeyCode leftKey = KeyCode.A;
+    public KeyCode rightKey = KeyCode.D;
+    public KeyCode upKey = KeyCode.Space;
+    public KeyCode downKey = KeyCode.LeftShift;
+    public KeyCode sprintKey = KeyCode.LeftControl;
     public KeyCode unlockMouseKey = KeyCode.Escape;
     void Start()
     {
@@ -15,15 +20,37 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
+        Vector3 direction = Vector3.zero;
+        if (Input.GetKey(upKey))
+        {
+            direction += transform.up;
+        }
+        if (Input.GetKey(downKey))
+        {
+            direction -= transform.up;
+        }
         if (Input.GetKey(forwardKey))
         {
-            Vector3 direction = transform.forward;
-            if (Input.GetKey(sprintKey))
-            {
-                direction *= sprintMult;
-            }
-            GetComponent<Rigidbody>().velocity = direction * cameraSpeed;
+            direction += transform.forward;
         }
+        if (Input.GetKey(backwardKey))
+        {
+            direction -= transform.forward;
+        }
+        if (Input.GetKey(rightKey))
+        {
+            direction += transform.right;
+        }
+        if (Input.GetKey(leftKey))
+        {
+            direction -= transform.right;
+        }
+        direction.Normalize();
+        if (Input.GetKey(sprintKey))
+        {
+            direction *= sprintMult;
+        }
+        GetComponent<Rigidbody>().velocity = direction * cameraSpeed;
         if (Input.GetKeyDown(unlockMouseKey))
         {
             Cursor.lockState = CursorLockMode.None;

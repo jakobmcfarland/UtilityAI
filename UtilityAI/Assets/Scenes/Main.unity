@@ -305,5 +305,10 @@ MonoBehaviour:
   cameraSpeed: 10
   sprintMult: 3
   forwardKey: 119
-  sprintKey: 304
+  backwardKey: 115
+  leftKey: 97
+  rightKey: 100
+  upKey: 32
+  downKey: 304
+  sprintKey: 306
   unlockMouseKey: 27

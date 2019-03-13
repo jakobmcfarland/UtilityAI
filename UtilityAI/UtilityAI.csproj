@@ -286,8 +286,17 @@
   <ItemGroup>
     <Compile Include="Assets\Code\Demo\AILevelGenerator.cs" />
     <Compile Include="Assets\Code\Demo\BlueRoomBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\BlueRoomDownBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\BlueRoomLeftBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\BlueRoomRightBehavior.cs" />
     <Compile Include="Assets\Code\Demo\GreenRoomBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\GreenRoomDownBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\GreenRoomLeftBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\GreenRoomRightBehavior.cs" />
     <Compile Include="Assets\Code\Demo\GreyRoomBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\GreyRoomDownBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\GreyRoomLeftBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\GreyRoomRightBehavior.cs" />
     <Compile Include="Assets\Code\Misc Code\CameraController.cs" />
     <Compile Include="Assets\Code\UtilityAI\BehaviorMaster.cs" />
     <Compile Include="Assets\Code\UtilityAI\ExampleBehavior.cs" />
@@ -296,7 +305,11 @@
   <ItemGroup>
     <None Include="Assets\Code\Demo\AILevelGenerator.cs.meta" />
     <None Include="Assets\Code\Demo\BlueRoomBehavior.cs.meta" />
+    <None Include="Assets\Code\Demo\BlueRoomDownBehavior.cs.meta" />
+    <None Include="Assets\Code\Demo\BlueRoomLeftBehavior.cs.meta" />
+    <None Include="Assets\Code\Demo\GreenRoomLeftBehavior.cs.meta" />
     <None Include="Assets\Code\Demo\GreyRoomBehavior.cs.meta" />
+    <None Include="Assets\Code\Demo\GreyRoomLeftBehavior.cs.meta" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
