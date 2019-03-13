@@ -13,9 +13,13 @@ namespace Assets.Code.Demo
         {
             int points = 0;
 
-            if (generator.prevRoomDirection != "right") points += 50;
+			if (generator.prevRoomDirection != "right")
+			{
+				points += 60;
 
-            if (generator.prevRoomType == "blue") points -= 50;
+				if (generator.prevRoomType == "blue")
+					points -= 60;
+			}
 
             return points;
         }

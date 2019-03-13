@@ -10,7 +10,9 @@ public class AILevelGenerator : MonoBehaviour
     public GameObject greyRoom;
     public GameObject greenRoom;
     public GameObject blueRoom;
-    public float roomWidth = 5;
+	public GameObject orangeRoom;
+
+	public float roomWidth = 5;
     public string prevRoomDirection;
     public string prevRoomType;
     public GameObject prevRoom;
@@ -58,6 +60,10 @@ public class AILevelGenerator : MonoBehaviour
         IBehavior blueRight = new BlueRoomRightBehavior();
         blueRight.GiveGameObject(gameObject, "generator");
         behaviorMaster.AddBehavior(blueRight);
+
+		IBehavior orange = new OrangeRoomBehavior();
+		orange.GiveGameObject(gameObject, "generator");
+		behaviorMaster.AddBehavior(orange);
 
         prevRoom = GameObject.Instantiate(greyRoom, Vector3.zero, Quaternion.identity);
         prevRoomType = "grey";

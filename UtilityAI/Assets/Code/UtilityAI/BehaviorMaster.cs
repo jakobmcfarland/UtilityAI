@@ -6,7 +6,13 @@ using Assets.Code.UtilityAI;
 public class BehaviorMaster
 {
     // List of all behaviors in the BehaviorMaster
-    private List<IBehavior> behaviors;
+	private List<IBehavior> behaviors;
+
+	public BehaviorMaster()
+	{
+		behaviors = new List<IBehavior>();
+	}
+
     // Adds a new behavior to the behavior list
     public void AddBehavior(IBehavior behavior)
     {

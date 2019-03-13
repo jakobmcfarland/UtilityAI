@@ -23,7 +23,7 @@ namespace Assets.Code.Demo
         {
             int points = 50;
 
-            if (generator.prevRoomType == "grey") points += 100;
+            if (generator.prevRoomType == "grey") points += 150;
 
             if (generator.prevRoomType != "blue") points += 50;
 
