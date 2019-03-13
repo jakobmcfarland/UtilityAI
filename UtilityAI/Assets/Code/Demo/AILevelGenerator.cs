@@ -9,6 +9,8 @@ public class AILevelGenerator : MonoBehaviour
     public GameObject greyRoom;
     public GameObject greenRoom;
     public GameObject blueRoom;
+    public string prevRoomDirection;
+    public string prevRoomType;
     public GameObject prevRoom;
     public int numOfRooms = 20;
     void Start()

@@ -284,9 +284,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\Demo\AILevelGenerator.cs" />
+    <Compile Include="Assets\Code\Demo\BlueRoomBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\GreenRoomBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\GreyRoomBehavior.cs" />
+    <Compile Include="Assets\Code\Misc Code\CameraController.cs" />
     <Compile Include="Assets\Code\UtilityAI\BehaviorMaster.cs" />
     <Compile Include="Assets\Code\UtilityAI\ExampleBehavior.cs" />
     <Compile Include="Assets\Code\UtilityAI\IBehavior.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Code\Demo\AILevelGenerator.cs.meta" />
+    <None Include="Assets\Code\Demo\BlueRoomBehavior.cs.meta" />
+    <None Include="Assets\Code\Demo\GreyRoomBehavior.cs.meta" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
