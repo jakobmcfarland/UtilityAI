@@ -23,9 +23,9 @@ namespace Assets.Code.Demo
         {
             int points = 0;
 
-            //if (generator.prevRoomDirection != "right") points += 50;
+            if (generator.prevRoomDirection != "right") points += 50;
 
-            //if (generator.prevRoomType == "grey") points += 50;
+            if (generator.prevRoomType == "grey") points += 50;
 
             return points;
         }
@@ -40,11 +40,13 @@ namespace Assets.Code.Demo
 
         public void RunBehavior()
         {
-            //example behavior action
-            //Vector3 translation = generator.prevObject
+            Transform prevTrasnform = generator.prevRoom.GetComponent<Transform>();
+            GameObject spawn = GameObject.Instantiate(generator.greyRoom,
+                prevTrasnform.position + Vector3.left * generator.roomWidth, Quaternion.identity);
 
-            //generator.prevRoomType = "Grey";
-            //generator.prevRoomDirection = "left";
+            generator.prevRoom = spawn;
+            generator.prevRoomType = "grey";
+            generator.prevRoomDirection = "left";
         }
     }
 }
