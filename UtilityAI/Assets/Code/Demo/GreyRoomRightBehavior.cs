@@ -15,30 +15,36 @@ using Assets.Code.UtilityAI;
 
 namespace Assets.Code.Demo
 {
-    public class GreyRoomBehavior : IBehavior
+    public class GreyRoomRightBehavior : IBehavior
     {
-        GameObject room;
+        AILevelGenerator generator;
 
         public int GetPointCount()
         {
             int points = 0;
 
-            if (Owner.GetComponent<Transform>().position.z > 0.0f) points -= 100;
+            //if (generator.prevRoomDirection != "left") points += 50;
 
-            if (Owner.GetComponent<Transform>().position.z < 0.0f) points += 200;
+            //if (generator.prevRoomType == "grey") points += 50;
 
             return points;
         }
 
         public void GiveGameObject(GameObject gameObject, string tag)
         {
-            if (tag == "owner") Owner = gameObject;
+            if (tag == "generator")
+            {
+                generator = gameObject.GetComponent<AILevelGenerator>();
+            }
         }
 
         public void RunBehavior()
         {
             //example behavior action
-            Owner.GetComponent<Transform>().Translate(Vector3.up);
+            //Vector3 translation = generator.prevObject
+
+            //generator.prevRoomType = "Grey";
+            //generator.prevRoomDirection = "right";
         }
     }
 }
