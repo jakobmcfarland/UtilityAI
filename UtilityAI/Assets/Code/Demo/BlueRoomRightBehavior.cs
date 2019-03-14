@@ -13,7 +13,7 @@ namespace Assets.Code.Demo
         {
             int points = 0;
 
-			if (generator.prevRoomDirection != "left")
+			if (generator.prevRoomDirection != "left" && generator.currentDirection != 3)
 			{
 				points += 60;
 

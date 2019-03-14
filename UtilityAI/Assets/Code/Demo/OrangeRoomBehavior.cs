@@ -21,7 +21,7 @@ namespace Assets.Code.Demo
 
         public int GetPointCount()
         {
-            int points = 40;
+            int points = 50;
 
             return points;
         }
@@ -40,10 +40,9 @@ namespace Assets.Code.Demo
 
 			GameObject spawn = GameObject.Instantiate(generator.orangeRoom,
 				prevTrasnform.position + Vector3.up * generator.roomWidth, Quaternion.identity);
+			int height = Random.Range(0, 1);
 
-			int hieght = Random.Range(0, 2);
-
-			for (int i = 0; i < hieght; ++i)
+			for (int i = 0; i < height; ++i)
 			{
 				prevTrasnform = spawn.GetComponent<Transform>();
 
@@ -54,6 +53,9 @@ namespace Assets.Code.Demo
             generator.prevRoom = spawn;
             generator.prevRoomType = "orange";
             generator.prevRoomDirection = "stair";
+
+            generator.currentDirection = Random.Range(0, 4);
+
         }
     }
 }

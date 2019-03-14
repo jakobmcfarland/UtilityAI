@@ -18,6 +18,11 @@ public class BehaviorMaster
     {
         behaviors.Add(behavior);
     }
+    // Removes a behavior at the given index
+    public void RemoveBehavior(int index)
+    {
+        behaviors.RemoveAt(index);
+    }
     // Returns the behavior at the given index
     public IBehavior GetBehavior(int index)
     {
@@ -29,7 +34,7 @@ public class BehaviorMaster
         List<int> pointCounts = getPointCounts();
         int maxIndex = 0, i, currMax = pointCounts[0];
         // Finds the largest point behavior
-        for (i = 1; i < pointCounts.Capacity; i++)
+        for (i = 1; i < pointCounts.Count; i++)
         {
             if (pointCounts[i] > currMax)
             {
@@ -49,7 +54,7 @@ public class BehaviorMaster
         {
             pointTotal += i;
         }
-        int currPointCheck = 0, randNum = Random.Range(1, pointTotal), currIndex = 0;
+        int currPointCheck = 0, randNum = Random.Range(1, pointTotal + 1), currIndex = 0;
         // Loops through the points and runs the one which falls in the correct range
         foreach (int points in pointCounts)
         {

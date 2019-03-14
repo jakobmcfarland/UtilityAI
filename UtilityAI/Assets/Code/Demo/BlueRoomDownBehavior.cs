@@ -11,9 +11,9 @@ namespace Assets.Code.Demo
 
         public int GetPointCount()
         {
-            int points = 60;
+            int points = 0;
 
-            if (generator.prevRoomType == "blue") points -= 60;
+            if (generator.prevRoomDirection != "up" && generator.prevRoomType == "blue" && generator.currentDirection != 0) points += 60;
 
             return points;
         }
