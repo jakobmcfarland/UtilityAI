@@ -68,6 +68,8 @@
     <Compile Include="Assets\Code\Demo\GreyRoomRightBehavior.cs" />
     <Compile Include="Assets\Code\Demo\GreyRoomUpBehavior.cs" />
     <Compile Include="Assets\Code\Demo\OrangeRoomBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\PurpleRoomDownBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\PurpleRoomUpBehavior.cs" />
     <Compile Include="Assets\Code\Misc Code\CameraController.cs" />
     <Compile Include="Assets\Code\Misc Code\Elevator.cs" />
     <Compile Include="Assets\Code\Misc Code\PlayerMovement.cs" />
@@ -332,6 +334,10 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Code\Demo\PurpleRoomDownBehavior.cs.meta" />
+    <None Include="Assets\Code\Demo\PurpleRoomUpBehavior.cs.meta" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

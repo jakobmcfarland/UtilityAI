@@ -6,6 +6,7 @@ using Assets.Code.Demo;
 
 public class AILevelGenerator : MonoBehaviour
 {
+    public GameObject player;
     public GameObject roomParent;
     public BehaviorMaster behaviorMaster = new BehaviorMaster();
     public BehaviorMaster branchingMaster = new BehaviorMaster();

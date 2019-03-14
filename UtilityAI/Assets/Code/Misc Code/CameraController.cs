@@ -32,6 +32,13 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            gameObject.AddComponent<Rigidbody>().useGravity = false;
+            transform.parent = null;
+            movementActive = true;
+            rotateActive = true;
+        }
         if (movementActive)
         {
             Vector3 direction = Vector3.zero;
@@ -77,7 +84,10 @@ public class CameraController : MonoBehaviour
         if (rotateActive && Cursor.lockState == CursorLockMode.Locked)
         {
             transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), 0, 0) * 2, Space.Self);
-            //transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * 2, Space.World);
+            if (movementActive)
+            {
+                transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * 2, Space.World);
+            }
         }
     }
 }
