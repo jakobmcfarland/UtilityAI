@@ -8,6 +8,7 @@ namespace Assets.Code.Demo
     public class BlueRoomLeftBehavior : IBehavior
     {
         AILevelGenerator generator;
+        GameObject parent;
 
         public int GetPointCount()
         {
@@ -30,6 +31,10 @@ namespace Assets.Code.Demo
             {
                 generator = gameObject.GetComponent<AILevelGenerator>();
             }
+            else if (tag == "parent")
+            {
+                parent = gameObject;
+            }
         }
 
         public void RunBehavior()
@@ -37,6 +42,7 @@ namespace Assets.Code.Demo
             Transform prevTrasnform = generator.prevRoom.GetComponent<Transform>();
             GameObject spawn = GameObject.Instantiate(generator.blueRoom,
                 prevTrasnform.position + Vector3.left * generator.roomWidth, Quaternion.identity);
+            spawn.transform.SetParent(parent.transform);
 
             generator.prevRoom = spawn;
             generator.prevRoomType = "blue";

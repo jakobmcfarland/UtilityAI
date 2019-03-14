@@ -6,6 +6,7 @@ using Assets.Code.Demo;
 
 public class AILevelGenerator : MonoBehaviour
 {
+    public GameObject roomParent;
     public BehaviorMaster behaviorMaster = new BehaviorMaster();
     public GameObject greyRoom;
     public GameObject greenRoom;
@@ -27,61 +28,86 @@ public class AILevelGenerator : MonoBehaviour
 
         // List of behaviors
         IBehavior greyDown = new GreyRoomDownBehavior();
-        greyDown.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(greyDown);
+        initializeRoom(greyDown);
 
         IBehavior greyLeft = new GreyRoomLeftBehavior();
-        greyLeft.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(greyLeft);
+        initializeRoom(greyLeft);
 
         IBehavior greyRight = new GreyRoomRightBehavior();
-        greyRight.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(greyRight);
+        initializeRoom(greyRight);
 
         IBehavior greyUp = new GreyRoomUpBehavior();
-        greyUp.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(greyUp);
+        initializeRoom(greyUp);
 
         IBehavior greenDown = new GreenRoomDownBehavior();
-        greenDown.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(greenDown);
+        initializeRoom(greenDown);
 
         IBehavior greenLeft = new GreenRoomLeftBehavior();
-        greenLeft.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(greenLeft);
+        initializeRoom(greenLeft);
 
         IBehavior greenRight = new GreenRoomRightBehavior();
-        greenRight.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(greenRight);
+        initializeRoom(greenRight);
 
         IBehavior greenUp = new GreenRoomUpBehavior();
-        greenUp.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(greenUp);
+        initializeRoom(greenUp);
 
         IBehavior blueDown = new BlueRoomDownBehavior();
-        blueDown.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(blueDown);
+        initializeRoom(blueDown);
 
         IBehavior blueLeft = new BlueRoomLeftBehavior();
-        blueLeft.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(blueLeft);
+        initializeRoom(blueLeft);
 
         IBehavior blueRight = new BlueRoomRightBehavior();
-        blueRight.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(blueRight);
+        initializeRoom(blueRight);
 
         IBehavior blueUp = new BlueRoomRightBehavior();
-        blueUp.GiveGameObject(gameObject, "generator");
-        behaviorMaster.AddBehavior(blueUp);
+        initializeRoom(blueUp);
 
         IBehavior orange = new OrangeRoomBehavior();
-		orange.GiveGameObject(gameObject, "generator");
-		behaviorMaster.AddBehavior(orange);
+        initializeRoom(orange);
 
         prevRoom = GameObject.Instantiate(greyRoom, Vector3.zero, Quaternion.identity);
         prevRoomType = "grey";
         prevRoomDirection = "down";
+        prevRoom.transform.SetParent(roomParent.transform);
 
+        // Runs probabilityDecide until all of the rooms are created
+        for (int i = 0; i < numOfRooms; i++)
+        {
+            behaviorMaster.probabilityDecide();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            reloadRooms();
+        }
+    }
+
+    void initializeRoom(IBehavior room)
+    {
+        room.GiveGameObject(gameObject, "generator");
+        room.GiveGameObject(roomParent, "parent");
+        behaviorMaster.AddBehavior(room);
+    }
+
+    void reloadRooms()
+    {
+        // Destroys all previous rooms
+        foreach(Transform t in roomParent.GetComponentsInChildren<Transform>())
+        {
+            if (t.gameObject != roomParent)
+            {
+                Destroy(t.gameObject);
+            }
+        }
+        // Spawns first room
+        prevRoom = GameObject.Instantiate(greyRoom, Vector3.zero, Quaternion.identity);
+        prevRoomType = "grey";
+        prevRoomDirection = "down";
+        prevRoom.transform.SetParent(roomParent.transform);
         // Runs probabilityDecide until all of the rooms are created
         for (int i = 0; i < numOfRooms; i++)
         {

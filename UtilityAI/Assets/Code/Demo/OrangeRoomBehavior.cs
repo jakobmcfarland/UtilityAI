@@ -18,6 +18,7 @@ namespace Assets.Code.Demo
     public class OrangeRoomBehavior : IBehavior
     {
         AILevelGenerator generator;
+        GameObject parent;
 
         public int GetPointCount()
         {
@@ -31,6 +32,10 @@ namespace Assets.Code.Demo
             if (tag == "generator")
             {
                 generator = gameObject.GetComponent<AILevelGenerator>();
+            }
+            else if (tag == "parent")
+            {
+                parent = gameObject;
             }
         }
 
@@ -49,6 +54,7 @@ namespace Assets.Code.Demo
 				spawn = GameObject.Instantiate(generator.orangeRoom,
 					prevTrasnform.position + Vector3.up * generator.roomWidth, Quaternion.identity);
 			}
+            spawn.transform.SetParent(parent.transform);
 
             generator.prevRoom = spawn;
             generator.prevRoomType = "orange";
