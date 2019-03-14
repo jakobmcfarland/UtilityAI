@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2226178062359455137}
   - component: {fileID: 2226178062359455136}
   - component: {fileID: 2226178062359455139}
+  - component: {fileID: 8061760864701727690}
   m_Layer: 0
   m_Name: GreyRoomPrefab
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8061760864701727690
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226178062359455149}
+  m_Material: {fileID: 13400000, guid: 15eed0d4b52e88f4c97b16fa093b7eec, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

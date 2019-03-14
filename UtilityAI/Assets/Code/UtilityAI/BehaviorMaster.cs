@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿/*  
+ *  File:   BehaviorMaster.cs
+ *  By:     Freddy Martin
+ *  Date:   3/14/2019
+ * 
+ *  Brief:  
+ *      Manager for IBehaviors and use of IBehaviors
+ * 
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Code.UtilityAI;
