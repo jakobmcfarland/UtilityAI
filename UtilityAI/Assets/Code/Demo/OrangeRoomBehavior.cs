@@ -41,19 +41,31 @@ namespace Assets.Code.Demo
 
         public void RunBehavior()
         {
-            Transform prevTrasnform = generator.prevRoom.GetComponent<Transform>();
+            GameObject spawn;
+            Transform prevTrasnform;
+            int height = Random.Range(1, 3);
 
-			GameObject spawn = GameObject.Instantiate(generator.orangeRoom,
-				prevTrasnform.position + Vector3.up * generator.roomWidth, Quaternion.identity);
-			int height = Random.Range(0, 1);
-
-			for (int i = 0; i < height; ++i)
+            for (int i = 0; i < height; ++i)
 			{
-				prevTrasnform = spawn.GetComponent<Transform>();
+                prevTrasnform = generator.prevRoom.GetComponent<Transform>();
 
-				spawn = GameObject.Instantiate(generator.orangeRoom,
+                spawn = GameObject.Instantiate(generator.orangeRoom,
 					prevTrasnform.position + Vector3.up * generator.roomWidth, Quaternion.identity);
-			}
+                spawn.transform.SetParent(parent.transform);
+
+                generator.prevRoom = spawn;
+                generator.CreateBranchingRooms();
+
+                generator.prevRoom = spawn;
+                generator.prevRoomType = "orange";
+                generator.prevRoomDirection = "stair"; 
+            }
+
+            prevTrasnform = generator.prevRoom.GetComponent<Transform>();
+
+            spawn = GameObject.Instantiate(generator.orangeRoom,
+                prevTrasnform.position + Vector3.up * generator.roomWidth, Quaternion.identity);
+
             spawn.transform.SetParent(parent.transform);
 
             generator.prevRoom = spawn;

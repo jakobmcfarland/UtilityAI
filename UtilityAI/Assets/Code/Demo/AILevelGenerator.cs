@@ -8,17 +8,20 @@ public class AILevelGenerator : MonoBehaviour
 {
     public GameObject roomParent;
     public BehaviorMaster behaviorMaster = new BehaviorMaster();
+    public BehaviorMaster branchingMaster = new BehaviorMaster();
     public GameObject greyRoom;
     public GameObject greenRoom;
     public GameObject blueRoom;
-	public GameObject orangeRoom;
+    public GameObject orangeRoom;
+    public GameObject purpleRoom;
 
     public int currentDirection = 2;
-	public float roomWidth = 5;
+    public float roomWidth = 5;
     public string prevRoomDirection;
     public string prevRoomType;
     public GameObject prevRoom;
-    public int numOfRooms = 10;
+    public int numOfRooms = 500;
+    public int numOfBranchingRooms = 20;
 
 
     void Start()
@@ -28,43 +31,61 @@ public class AILevelGenerator : MonoBehaviour
 
         // List of behaviors
         IBehavior greyDown = new GreyRoomDownBehavior();
-        initializeRoom(greyDown);
+        initializeRoom(behaviorMaster, greyDown);
+        initializeRoom(branchingMaster, greyDown);
 
         IBehavior greyLeft = new GreyRoomLeftBehavior();
-        initializeRoom(greyLeft);
+        initializeRoom(behaviorMaster, greyLeft);
+        initializeRoom(branchingMaster, greyLeft);
 
         IBehavior greyRight = new GreyRoomRightBehavior();
-        initializeRoom(greyRight);
+        initializeRoom(behaviorMaster, greyRight);
+        initializeRoom(branchingMaster, greyRight);
 
         IBehavior greyUp = new GreyRoomUpBehavior();
-        initializeRoom(greyUp);
+        initializeRoom(behaviorMaster, greyUp);
+        initializeRoom(branchingMaster, greyUp);
 
         IBehavior greenDown = new GreenRoomDownBehavior();
-        initializeRoom(greenDown);
+        initializeRoom(behaviorMaster, greenDown);
+        initializeRoom(branchingMaster, greenDown);
 
         IBehavior greenLeft = new GreenRoomLeftBehavior();
-        initializeRoom(greenLeft);
+        initializeRoom(behaviorMaster, greenLeft);
+        initializeRoom(branchingMaster, greenLeft);
 
         IBehavior greenRight = new GreenRoomRightBehavior();
-        initializeRoom(greenRight);
+        initializeRoom(behaviorMaster, greenRight);
+        initializeRoom(branchingMaster, greenRight);
 
         IBehavior greenUp = new GreenRoomUpBehavior();
-        initializeRoom(greenUp);
+        initializeRoom(behaviorMaster, greenUp);
+        initializeRoom(branchingMaster, greenUp);
 
         IBehavior blueDown = new BlueRoomDownBehavior();
-        initializeRoom(blueDown);
+        initializeRoom(behaviorMaster, blueDown);
+        initializeRoom(branchingMaster, blueDown);
 
         IBehavior blueLeft = new BlueRoomLeftBehavior();
-        initializeRoom(blueLeft);
+        initializeRoom(behaviorMaster, blueLeft);
+        initializeRoom(branchingMaster, blueLeft);
 
         IBehavior blueRight = new BlueRoomRightBehavior();
-        initializeRoom(blueRight);
+        initializeRoom(behaviorMaster, blueRight);
+        initializeRoom(branchingMaster, blueRight);
 
         IBehavior blueUp = new BlueRoomRightBehavior();
-        initializeRoom(blueUp);
+        initializeRoom(behaviorMaster, blueUp);
+        initializeRoom(branchingMaster, blueUp);
+
+        IBehavior purpleUp = new PurpleRoomUpBehavior();
+        initializeRoom(behaviorMaster, purpleUp);
+
+        IBehavior purpleDown = new PurpleRoomDownBehavior();
+        initializeRoom(behaviorMaster, purpleDown);
 
         IBehavior orange = new OrangeRoomBehavior();
-        initializeRoom(orange);
+        initializeRoom(behaviorMaster, orange); 
 
         prevRoom = GameObject.Instantiate(greyRoom, Vector3.zero, Quaternion.identity);
         prevRoomType = "grey";
@@ -86,11 +107,19 @@ public class AILevelGenerator : MonoBehaviour
         }
     }
 
-    void initializeRoom(IBehavior room)
+    public void CreateBranchingRooms()
+    {
+        for (int i = 0; i < numOfBranchingRooms; i++)
+        {
+            branchingMaster.probabilityDecide();
+        }
+    }
+
+    void initializeRoom(BehaviorMaster behaviorMaster_, IBehavior room)
     {
         room.GiveGameObject(gameObject, "generator");
         room.GiveGameObject(roomParent, "parent");
-        behaviorMaster.AddBehavior(room);
+        behaviorMaster_.AddBehavior(room);
     }
 
     void reloadRooms()
