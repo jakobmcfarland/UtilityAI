@@ -16,6 +16,7 @@ public class AILevelGenerator : MonoBehaviour
     public GameObject blueRoom;
     public GameObject orangeRoom;
     public GameObject purpleRoom;
+    public GameObject yellowPillar;
     public GameObject textPrefab;
 
     public int currentDirection = 2;
@@ -27,7 +28,7 @@ public class AILevelGenerator : MonoBehaviour
     public int numOfBranchingRooms = 20;
 
     Vector3 playerStartPos;
-    bool textSpawned = false;
+    public bool textSpawned = false;
 
     void Start()
     {
@@ -89,6 +90,10 @@ public class AILevelGenerator : MonoBehaviour
 
         IBehavior purpleDown = new PurpleRoomDownBehavior();
         initializeRoom(behaviorMaster, purpleDown);
+
+        //IBehavior yellowPillar = new YellowPillarBehavior();
+        //initializeRoom(behaviorMaster, yellowPillar);
+        //initializeRoom(branchingMaster, blueUp);
 
         IBehavior orange = new OrangeRoomBehavior();
         initializeRoom(behaviorMaster, orange); 

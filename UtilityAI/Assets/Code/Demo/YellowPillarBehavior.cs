@@ -20,9 +20,15 @@ namespace Assets.Code.Demo
         AILevelGenerator generator;
         GameObject parent;
 
+
         public int GetPointCount()
         {
-            int points = 50;
+            int points = 0;
+
+            if (generator.prevRoomDirection != "stair" && generator.prevRoomType == "blue")
+            {
+                points += 100;
+            }
 
             return points;
         }
@@ -41,39 +47,12 @@ namespace Assets.Code.Demo
 
         public void RunBehavior()
         {
-            GameObject spawn;
-            Transform prevTrasnform;
-            int height = Random.Range(1, 3);
-
-            for (int i = 0; i < height; ++i)
-			{
-                prevTrasnform = generator.prevRoom.GetComponent<Transform>();
-
-                spawn = GameObject.Instantiate(generator.orangeRoom,
-					prevTrasnform.position + Vector3.up * generator.roomWidth, Quaternion.identity);
-                spawn.transform.SetParent(parent.transform);
-
-                generator.prevRoom = spawn;
-                generator.CreateBranchingRooms();
-
-                generator.prevRoom = spawn;
-                generator.prevRoomType = "orange";
-                generator.prevRoomDirection = "stair"; 
-            }
-
-            prevTrasnform = generator.prevRoom.GetComponent<Transform>();
-
-            spawn = GameObject.Instantiate(generator.orangeRoom,
-                prevTrasnform.position + Vector3.up * generator.roomWidth, Quaternion.identity);
-
+            Transform prevTrasnform = generator.prevRoom.GetComponent<Transform>();
+            GameObject spawn = GameObject.Instantiate(generator.yellowPillar, 
+                prevTrasnform.position, Quaternion.identity);
             spawn.transform.SetParent(parent.transform);
 
-            generator.prevRoom = spawn;
-            generator.prevRoomType = "orange";
-            generator.prevRoomDirection = "stair";
-
-            generator.currentDirection = Random.Range(0, 4);
-
+            //generator.prevRoomType = "pillar";
         }
     }
 }
