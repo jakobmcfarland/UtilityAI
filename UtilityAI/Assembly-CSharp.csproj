@@ -67,6 +67,7 @@
     <Compile Include="Assets\Code\Demo\GreyRoomLeftBehavior.cs" />
     <Compile Include="Assets\Code\Demo\GreyRoomRightBehavior.cs" />
     <Compile Include="Assets\Code\Demo\GreyRoomUpBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\YellowPillarBehavior.cs" />
     <Compile Include="Assets\Code\Demo\OrangeRoomBehavior.cs" />
     <Compile Include="Assets\Code\Demo\PurpleRoomDownBehavior.cs" />
     <Compile Include="Assets\Code\Demo\PurpleRoomUpBehavior.cs" />
