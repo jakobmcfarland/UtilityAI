@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GetComponent<Rigidbody>().velocity = new Vector3(0, GetComponent<Rigidbody>().velocity.y, 0);
             }
-            if (Input.GetKeyDown(jumpKey) && Physics.Raycast(transform.position, -transform.up, 1.01f))
+            if (Input.GetKeyDown(jumpKey) && Physics.Raycast(transform.position, -transform.up, 1.03f))
             {
                 GetComponent<Rigidbody>().velocity += new Vector3(0, jumpSpeed, 0);
             }
