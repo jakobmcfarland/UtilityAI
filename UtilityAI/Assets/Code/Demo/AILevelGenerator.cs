@@ -24,9 +24,11 @@ public class AILevelGenerator : MonoBehaviour
     public int numOfRooms = 500;
     public int numOfBranchingRooms = 20;
 
+    Vector3 playerStartPos;
 
     void Start()
     {
+        playerStartPos = player.transform.position;
         // Template for adding behavior, add any needed
         // game objects and insert the proper type
 
@@ -125,6 +127,8 @@ public class AILevelGenerator : MonoBehaviour
 
     void reloadRooms()
     {
+        // Resets the player
+        player.transform.position = playerStartPos;
         // Destroys all previous rooms
         foreach(Transform t in roomParent.GetComponentsInChildren<Transform>())
         {
