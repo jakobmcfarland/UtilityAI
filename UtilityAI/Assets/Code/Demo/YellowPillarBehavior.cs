@@ -15,7 +15,7 @@ using Assets.Code.UtilityAI;
 
 namespace Assets.Code.Demo
 {
-    public class OrangeRoomBehavior : IBehavior
+    public class YellowPillarBehavior : IBehavior
     {
         AILevelGenerator generator;
         GameObject parent;
