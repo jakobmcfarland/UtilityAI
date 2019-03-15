@@ -14,7 +14,7 @@ namespace Assets.Code.Demo
         {
             int points = 0;
 
-            if (generator.prevRoomDirection != "down" || generator.currentDirection != 2)
+            if (generator.prevRoomDirection != "down" && generator.currentDirection != 2)
             {
                 points += 30;
 

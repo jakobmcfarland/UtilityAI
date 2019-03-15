@@ -130,7 +130,7 @@ public class AILevelGenerator : MonoBehaviour
         // Resets the player
         player.transform.position = playerStartPos;
         // Destroys all previous rooms
-        foreach(Transform t in roomParent.GetComponentsInChildren<Transform>())
+        foreach (Transform t in roomParent.GetComponentsInChildren<Transform>())
         {
             if (t.gameObject != roomParent)
             {
