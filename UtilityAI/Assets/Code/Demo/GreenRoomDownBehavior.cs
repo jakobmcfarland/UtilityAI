@@ -19,7 +19,7 @@ namespace Assets.Code.Demo
 
                 if (generator.prevRoomType == "green") points += 50;
 
-                if (generator.prevRoomType == "grey") points += 100;
+                // if (generator.prevRoomType == "grey") points += 100;
             }
 
             return points;

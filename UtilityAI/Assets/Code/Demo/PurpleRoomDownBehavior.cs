@@ -16,7 +16,7 @@ namespace Assets.Code.Demo
 
             if (generator.prevRoomDirection != "up" && generator.currentDirection != 0)
             {
-                points += 20;
+                points += 15;
 
                 if (generator.prevRoomType != "purple")
                 {
