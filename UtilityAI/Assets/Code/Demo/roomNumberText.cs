@@ -8,7 +8,10 @@ public class roomNumberText : MonoBehaviour
     public GameObject demoManager;
     void Start()
     {
-        
+        AILevelGenerator levelAI = demoManager.GetComponent<AILevelGenerator>();
+        levelAI.player.GetComponent<PlayerMovement>().active = false;
+        GetComponent<Text>().text = levelAI.numOfRooms.ToString();
+        Camera.main.GetComponent<CameraController>().rotateActive = false;
     }
     void Update()
     {
@@ -57,10 +60,20 @@ public class roomNumberText : MonoBehaviour
         {
             textComp.text += '9';
         }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) && GetComponent<Text>().text != "")
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            demoManager.GetComponent<AILevelGenerator>().numOfRooms = int.Parse(textComp.text);
-            demoManager.GetComponent<AILevelGenerator>().reloadRooms();
+            AILevelGenerator levelAI = demoManager.GetComponent<AILevelGenerator>();
+            if (textComp.text != "")
+            {
+                levelAI.numOfRooms = int.Parse(textComp.text);
+                levelAI.reloadRooms();
+            }
+            else
+            {
+                levelAI.textSpawned = false;
+            }
+            levelAI.player.GetComponent<PlayerMovement>().active = true;
+            Camera.main.GetComponent<CameraController>().rotateActive = true;
             Destroy(gameObject);
         }
     }
