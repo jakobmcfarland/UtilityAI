@@ -5,7 +5,7 @@ using Assets.Code.UtilityAI;
 
 namespace Assets.Code.Demo
 {
-    public class PurpleRoomDownBehavior : IBehavior
+    public class YellowPillarBehavior : IBehavior
     {
         AILevelGenerator generator;
         GameObject parent;
@@ -14,14 +14,9 @@ namespace Assets.Code.Demo
         {
             int points = 0;
 
-            if (generator.prevRoomDirection != "up" && generator.currentDirection != 0)
+            if (generator.prevRoomDirection != "stair" && generator.prevRoomDirection != "pillar" && generator.prevRoomType == "blue")
             {
-                points += 15;
-
-                if (generator.prevRoomType != "purple")
-                {
-                    points += 100;
-                }
+                points += 50;
             }
 
             return points;
@@ -42,13 +37,11 @@ namespace Assets.Code.Demo
         public void RunBehavior()
         {
             Transform prevTrasnform = generator.prevRoom.GetComponent<Transform>();
-            GameObject spawn = GameObject.Instantiate(generator.purpleRoom, 
-                prevTrasnform.position + Vector3.back * generator.roomWidth, Quaternion.identity);
-            spawn.transform.SetParent(parent.transform);
+            //GameObject spawn = GameObject.Instantiate(generator.yellowPillar, 
+            //    prevTrasnform.position, Quaternion.identity);
+            //spawn.transform.SetParent(parent.transform);
 
-            generator.prevRoom = spawn;
-            generator.prevRoomType = "purple";
-            generator.prevRoomDirection = "down";
+            generator.prevRoomType = "pillar";
         }
     }
 }
