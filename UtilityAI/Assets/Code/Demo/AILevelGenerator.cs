@@ -6,6 +6,7 @@ using Assets.Code.Demo;
 
 public class AILevelGenerator : MonoBehaviour
 {
+    public GameObject canvas;
     public GameObject player;
     public GameObject roomParent;
     public BehaviorMaster behaviorMaster = new BehaviorMaster();
@@ -15,6 +16,7 @@ public class AILevelGenerator : MonoBehaviour
     public GameObject blueRoom;
     public GameObject orangeRoom;
     public GameObject purpleRoom;
+    public GameObject textPrefab;
 
     public int currentDirection = 2;
     public float roomWidth = 5;
@@ -25,6 +27,7 @@ public class AILevelGenerator : MonoBehaviour
     public int numOfBranchingRooms = 20;
 
     Vector3 playerStartPos;
+    bool textSpawned = false;
 
     void Start()
     {
@@ -104,9 +107,13 @@ public class AILevelGenerator : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !textSpawned)
         {
-            reloadRooms();
+            textSpawned = true;
+            GameObject tempText = Instantiate(textPrefab);
+            tempText.transform.SetParent(canvas.transform);
+            tempText.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+            tempText.GetComponent<roomNumberText>().demoManager = gameObject;
         }
     }
 
@@ -125,8 +132,10 @@ public class AILevelGenerator : MonoBehaviour
         behaviorMaster_.AddBehavior(room);
     }
 
-    void reloadRooms()
+    public void reloadRooms()
     {
+
+        textSpawned = false;
         // Resets the player
         player.transform.position = playerStartPos;
         // Destroys all previous rooms

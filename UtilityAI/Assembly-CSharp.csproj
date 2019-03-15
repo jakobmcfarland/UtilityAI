@@ -70,6 +70,7 @@
     <Compile Include="Assets\Code\Demo\OrangeRoomBehavior.cs" />
     <Compile Include="Assets\Code\Demo\PurpleRoomDownBehavior.cs" />
     <Compile Include="Assets\Code\Demo\PurpleRoomUpBehavior.cs" />
+    <Compile Include="Assets\Code\Demo\roomNumberText.cs" />
     <Compile Include="Assets\Code\Misc Code\CameraController.cs" />
     <Compile Include="Assets\Code\Misc Code\Elevator.cs" />
     <Compile Include="Assets\Code\Misc Code\PlayerMovement.cs" />
