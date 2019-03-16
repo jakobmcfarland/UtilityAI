@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 548}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 74
+  controlID: 39
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -149,7 +149,7 @@ MonoBehaviour:
     y: 0
     width: 1903
     height: 981
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 548}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 11
+  controlID: 40
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 12
+  controlID: 81
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -336,20 +336,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Physics Material
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Physics Material
+  - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\jakob.mcfarland\Desktop\UtilityAI\UtilityAI
+  m_LastProjectPath: C:\Users\frederick.martin\Documents\GitHub\UtilityAI\UtilityAI
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 982f0000
-    m_LastClickedID: 12184
-    m_ExpandedIDs: 00000000142e0000ac2e000000ca9a3b
+    m_SelectedIDs: a0090000
+    m_LastClickedID: 2464
+    m_ExpandedIDs: 00000000a00900005a0a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -377,7 +377,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000142e0000ac2e0000
+    m_ExpandedIDs: 00000000a00900005a0a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -498,7 +498,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 82f5fffff62f0000
+      m_ExpandedIDs: f4f8ffff12f9ffff54faffffd4fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -553,9 +553,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.4598656, y: -0.67487496, z: 28.845259}
+    m_Target: {x: -23.984406, y: -0.5513544, z: 8.735243}
     speed: 2
-    m_Value: {x: -1.4598656, y: -0.67487496, z: 28.845259}
+    m_Value: {x: -23.984406, y: -0.5513544, z: 8.735243}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -583,9 +583,9 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.08112751, y: -0.0483808, z: 0.003942855, w: 0.995521}
+    m_Target: {x: 0.0672541, y: -0.5199163, z: 0.04110975, w: 0.85057276}
     speed: 2
-    m_Value: {x: 0.08112751, y: -0.0483808, z: 0.003942855, w: 0.995521}
+    m_Value: {x: 0.0672541, y: -0.5199163, z: 0.04110975, w: 0.85057276}
   m_Size:
     m_Target: 37.460327
     speed: 2
@@ -704,6 +704,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 8
     y: 702
-    width: 1533
+    width: 1532
     height: 290
   m_PersistentViewDataDictionary: {fileID: 0}
