@@ -28,6 +28,7 @@ public class CameraController : MonoBehaviour
     public KeyCode unlockMouseKey = KeyCode.Escape;
     void Start()
     {
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
     void Update()
@@ -75,10 +76,12 @@ public class CameraController : MonoBehaviour
         }
         if (Input.GetKeyDown(unlockMouseKey))
         {
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
         if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0))
         {
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
         if (rotateActive && Cursor.lockState == CursorLockMode.Locked)
