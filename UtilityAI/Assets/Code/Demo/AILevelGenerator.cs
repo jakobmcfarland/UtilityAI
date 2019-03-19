@@ -6,6 +6,8 @@ using Assets.Code.Demo;
 
 public class AILevelGenerator : MonoBehaviour
 {
+    public bool asYouGo = false;
+    public float distToCont = 1100;
     public GameObject canvas;
     public GameObject player;
     public GameObject roomParent;
@@ -112,6 +114,13 @@ public class AILevelGenerator : MonoBehaviour
 
     private void Update()
     {
+        if (asYouGo && Vector3.Distance(prevRoom.transform.position, Camera.main.transform.position) <= distToCont)
+        {
+            for (int i = 0; i < numOfRooms; i++)
+            {
+                behaviorMaster.probabilityDecide();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.R) && !textSpawned)
         {
             textSpawned = true;

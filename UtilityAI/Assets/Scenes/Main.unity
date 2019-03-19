@@ -437,6 +437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e90f60e7ef5ad409b1457bc76f35be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asYouGo: 1
+  distToCont: 1100
   canvas: {fileID: 1809517674}
   player: {fileID: 623116959}
   roomParent: {fileID: 758004895}
