@@ -120,6 +120,10 @@ public class AILevelGenerator : MonoBehaviour
             tempText.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
             tempText.GetComponent<roomNumberText>().demoManager = gameObject;
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            reloadRooms();
+        }
         if (Input.GetKeyDown(KeyCode.L))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
