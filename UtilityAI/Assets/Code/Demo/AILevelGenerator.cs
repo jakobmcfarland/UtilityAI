@@ -6,7 +6,7 @@ using Assets.Code.Demo;
 
 public class AILevelGenerator : MonoBehaviour
 {
-    public bool asYouGo = true;
+    public bool asYouGo = false;
     public float distToCont = 1100;
     public GameObject canvas;
     public GameObject player;
@@ -114,7 +114,7 @@ public class AILevelGenerator : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(prevRoom.transform.position, Camera.main.transform.position) <= distToCont)
+        if (asYouGo && Vector3.Distance(prevRoom.transform.position, Camera.main.transform.position) <= distToCont)
         {
             for (int i = 0; i < numOfRooms; i++)
             {
